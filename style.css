@@ -68,3 +68,9 @@ body {
 /*canvas {
   box-shadow: black 20px 10px 50px;
 }*/
+
+.startGameButton {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 5px;
+}
