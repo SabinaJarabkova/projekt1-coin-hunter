@@ -76,15 +76,17 @@ let minceY = 50;
 let minceWidth = 30;
 let minceHeight = 30;
 
-
 let score = 0;
+let pocetBodu = document.getElementById('score');
 
-function startGame(){
+
+function startGame() {
   startMusic();
   vychoziPozicePanacka();
   poziceMince();
   panacekChytilMincu();
-  vyhra();
+
+
 }
 
 function poziceMince() {
@@ -143,25 +145,43 @@ function keyDown(event) {
     panacek.src = 'obrazky/panacek-vlevo.png'
   }
   panacekChytilMincu();
+  vyhra();
+
+
 }
 
 //prekrizenie panacika a mince
 function panacekChytilMincu() {
   console.log(panacekX + " " + minceX);
   console.log(panacekY + " " + minceY);
+
   if (!( panacekX + panacekWidth < minceX || minceX + minceWidth < panacekX || panacekY + panacekHeight < minceY || minceY + minceHeight < panacekY)) {
     document.getElementById('zvukmince').play;
     //nova pozice mince + nacitanie skore
     poziceMince();
-    score = score++;
+    //score 
+    score = score + 1;
+    //document.getElementById('zvukfanfara').play;
+    pocetBodu.textContent = score;
+    
     console.log('kolize s minci');
+
   } 
+
+  if (pocetBodu >= 5) {
+    document.getElementById('zvukfanfara').play;
+    alert('Vyhráváš! Ale jestli chceš, mužeš pokračovat ve hře.');
+    console.log(pocetBodu);}
+    
   console.log('krok');
 }
 
 function vyhra() {
-  if (score >= 5) {
+
+  if (pocetBodu >= 5) {
     document.getElementById('zvukfanfara').play;
-    alert('Vyhráváš! Ale jestli chceš, mužeš pokračovat ve hře.')
+    alert('Vyhráváš! Ale jestli chceš, mužeš pokračovat ve hře.');
+    console.log(pocetBodu);
   }
 }
+
