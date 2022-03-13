@@ -85,8 +85,6 @@ function startGame() {
   vychoziPozicePanacka();
   poziceMince();
   panacekChytilMincu();
-
-
 }
 
 function poziceMince() {
@@ -145,7 +143,8 @@ function keyDown(event) {
     panacek.src = 'obrazky/panacek-vlevo.png'
   }
   panacekChytilMincu();
-  vyhra();
+  gameOver();
+
 
 
 }
@@ -163,25 +162,23 @@ function panacekChytilMincu() {
     score = score + 1;
     //document.getElementById('zvukfanfara').play;
     pocetBodu.textContent = score;
-    
     console.log('kolize s minci');
-
   } 
-
-  if (pocetBodu >= 5) {
-    document.getElementById('zvukfanfara').play;
-    alert('Vyhráváš! Ale jestli chceš, mužeš pokračovat ve hře.');
-    console.log(pocetBodu);}
-    
   console.log('krok');
 }
 
+//vyhra 
 function vyhra() {
+  console.log('Vyhravas!');
+  pocetBodu.textContent = "Vyhral si!";
+  document.getElementById('zvukfanfara').play;
 
-  if (pocetBodu >= 5) {
-    document.getElementById('zvukfanfara').play;
+}
+
+function gameOver() {
+  if (pocetBodu.textContent >= 5) {
+    vyhra();
     alert('Vyhráváš! Ale jestli chceš, mužeš pokračovat ve hře.');
-    console.log(pocetBodu);
   }
 }
 
