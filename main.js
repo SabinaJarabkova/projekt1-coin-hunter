@@ -71,7 +71,7 @@ document.body.addEventListener('keydown', keyDown);
   
 function keyDown(event) {
   //dole
-  if (event.keyCode === 40 && ((panacekY + pohybY) <= window.innerHeight)) {
+  if (event.keyCode === 40 && ((parseInt(panacekY) + pohybY) <= window.innerHeight)) {
     panacekY = panacekY + pohybY;
     panacekX = panacekX;
     panacek.style.top = panacekY + 'px';
@@ -80,7 +80,7 @@ function keyDown(event) {
   }
 
   //hore
-  if (event.keyCode === 38 && ((panacekY + pohybY) <= window.innerHeight)) {
+  if (event.keyCode === 38 && ((parseInt(panacekY) - pohybY) >= 0)) {
     panacekY = panacekY - pohybY;
     panacekX = panacekX;
     panacek.style.top = panacekY + 'px';
@@ -89,7 +89,7 @@ function keyDown(event) {
   }
 
   //vpravo
-  if (event.keyCode === 39 && ((panacekX + pohybX) <= window.innerWidth)) {
+  if (event.keyCode === 39 && ((parseInt(panacekX) - pohybX) <= window.innerWidth)) {
     panacekY = panacekY;
     panacekX = panacekX + pohybX;
     panacek.style.top = panacekY + 'px';
@@ -98,13 +98,14 @@ function keyDown(event) {
   }
 
   //vlavo
-  if (event.keyCode === 37 && ((panacekX - pohybX) <= window.innerWidth)) {
+  if (event.keyCode === 37 && ((parseInt(panacekX) + pohybX) >= 0)) {
     panacekY = panacekY;
     panacekX = panacekX - pohybX;
     panacek.style.top = panacekY + 'px';
     panacek.style.left = panacekX + 'px';
     panacek.src = 'obrazky/panacek-vlevo.png'
   }
+
   panacekChytilMincu();
   gameOver();
 
