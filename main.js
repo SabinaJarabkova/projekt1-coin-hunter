@@ -98,7 +98,7 @@ function keyDown(event) {
   }
 
   //vlavo
-  if (event.keyCode === 37 && ((parseInt(panacekX) + pohybX) >= 0)) {
+  if (event.keyCode === 37 && ((parseInt(panacekX)) >= 0)) {
     panacekY = panacekY;
     panacekX = panacekX - pohybX;
     panacek.style.top = panacekY + 'px';
